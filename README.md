@@ -1,1 +1,1 @@
-# calculator
+For this project I will be making an on-screen Calculator using HTML, Javascript, and CSS. :)
