@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.base {
+    width: 450px;
+    height: 550px;
+    background-color: black;
+    border: 10px solid rgb(60, 60, 60);
+    border-radius: 10px;
+}
+
+.display {
+    background-color: rgb(139, 139, 139);
+    text-align: right;
+    font-size: 64px;
+    border: 5px solid black;
+    height: 90px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 465px;
+    width: 450px;
+    gap: 2px;
+    justify-content: center;
+}
+
+.button, .operator, .blue, .zero, .cell {
+    background-color: orange;
+    width: 100px;
+    height: 75px;
+    border-radius: 5px;
+}
+
+.zero {
+    width: 200px;
+    content: "test"
+}
+
+
+
