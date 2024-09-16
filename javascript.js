@@ -171,32 +171,36 @@ division.addEventListener('click', () => {
 
 equal.addEventListener('click', () => {
     secondNumber = displayValue
-    if (operation === 'add') {
-        display.textContent = add(firstNumber,secondNumber)
-        displayValue = display.textContent
-        firstNumber = null
+    if (firstNumber === null) {
+
     }
-    if (operation === 'multiply') {
-        display.textContent = multiply(firstNumber,secondNumber)
-        displayValue = display.textContent
-        firstNumber = null
+    else {
+        if (operation === 'add') {
+            display.textContent = add(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
+        if (operation === 'multiply') {
+            display.textContent = multiply(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
+        if (operation === 'subtract') {
+            display.textContent = subtract(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
+        if (operation === 'divide') {
+            display.textContent = divide(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
     }
-    if (operation === 'subtract') {
-        display.textContent = subtract(firstNumber,secondNumber)
-        displayValue = display.textContent
-        firstNumber = null
-    }
-    if (operation === 'divide') {
-        display.textContent = divide(firstNumber,secondNumber)
-        displayValue = display.textContent
-        firstNumber = null
-    }
+    
 })
 
-
-
-
-
-
-
-
+/* BUGS 
+- operator then equals (without another number) results in NaN
+- rounding...
+- clicking Equals twice results in NaN
+*/
