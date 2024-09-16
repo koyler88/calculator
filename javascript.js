@@ -34,24 +34,3 @@ function operate(operator, x, y) {
         return divide(x,y)
     }
 }
-
-const buttonContainer = document.querySelector('.buttonContainer')
-
-for (let i = 1; i < 20; i++) {
-    newDiv = document.createElement('button')
-    if (i === 4 || i === 8 || i === 12 || i === 16
-        || i === 19 ) {
-            newDiv.classList.add('operator')
-        }
-    else if (i === 1 || i === 2 || i === 3) {
-        newDiv.classList.add('blue')
-    }
-    else if (i === 17) {
-        newDiv.classList.add('zero')
-        newDiv.textContent = '0'
-    }
-    else {
-        newDiv.classList.add('cell')
-    }
-    buttonContainer.appendChild(newDiv)
-}
