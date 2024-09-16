@@ -81,8 +81,12 @@ decimal.value = "."
 
 decimal.addEventListener('click', (e) => {
     element = e.target
-    displayValue += element.value
-    display.textContent = displayValue;
+    if (displayValue.includes(".")) {
+    }
+    else {
+        displayValue += element.value
+        display.textContent = displayValue;
+    }
 })
 
 
