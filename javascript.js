@@ -202,5 +202,4 @@ equal.addEventListener('click', () => {
 /* BUGS 
 - operator then equals (without another number) results in NaN
 - rounding...
-- clicking Equals twice results in NaN
 */
