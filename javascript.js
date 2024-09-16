@@ -170,20 +170,23 @@ equal.addEventListener('click', () => {
     if (operation === 'add') {
         display.textContent = add(firstNumber,secondNumber)
         displayValue = display.textContent
+        firstNumber = null
     }
     if (operation === 'multiply') {
         display.textContent = multiply(firstNumber,secondNumber)
         displayValue = display.textContent
+        firstNumber = null
     }
     if (operation === 'subtract') {
         display.textContent = subtract(firstNumber,secondNumber)
         displayValue = display.textContent
+        firstNumber = null
     }
     if (operation === 'divide') {
         display.textContent = divide(firstNumber,secondNumber)
         displayValue = display.textContent
+        firstNumber = null
     }
-    operation = ''
 })
 
 
