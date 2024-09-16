@@ -83,6 +83,19 @@ like minus sign */
     color: white;
 }
 
+.number:active, .zero:active, .decimal:active {
+    background-color: #D4D4D2;
+}
+
+.modifier:active {
+    background-color: white;
+}
+
+.operator:focus {
+    background-color: white;
+    color: orange;
+}
+
 
 
 
