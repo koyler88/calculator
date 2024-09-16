@@ -1,17 +1,17 @@
 function add(x,y) {
-    return parseInt(x) + parseInt(y)
+    return parseFloat(x) + parseFloat(y)
 }
 
 function subtract(x,y) {
-    return parseInt(x) - parseInt(y)
+    return parseFloat(x) - parseFloat(y)
 }
 
 function multiply(x,y) {
-    return parseInt(x) * parseInt(y)
+    return parseFloat(x) * parseFloat(y)
 }
 
 function divide(x,y) {
-    return parseInt(x) / parseInt(y)
+    return parseFloat(x) / parseFloat(y)
 }
 
 
@@ -43,7 +43,16 @@ clear.addEventListener('click', () => {
 })
 
 const plusMinus = document.querySelector(".plusMinus")
+plusMinus.addEventListener('click', () => {
+    display.textContent = display.textContent * -1
+    displayValue = displayValue * -1
+})
+
 const percentage = document.querySelector(".percentage")
+percentage.addEventListener('click', () => {
+    display.textContent = display.textContent / 100
+    displayValue = displayValue / 100
+})
 
 const numberZero = document.querySelector(".zero")
 numberZero.value = 0
@@ -66,12 +75,26 @@ numberEight.value = 8
 const numberNine = document.querySelector(".nine")
 numberNine.value = 9
 
+/*
+const decimal = document.querySelector(".decimal")
+decimal.value = "."
+
+decimal.addEventListener('click', (e) => {
+    element = e.target
+    console.log(element.value)
+    displayValue += element.value
+    console.log(displayValue)
+    display.textContent = displayValue;
+})
+*/
+
+
 const numbers = document.querySelectorAll(".number")
 
 numbers.forEach(button =>  button.addEventListener('click', (e) => {
     element = e.target
     displayValue += element.value
-    display.textContent = parseInt(displayValue);
+    display.textContent = parseFloat(displayValue);
 }))
 
 firstNumber = 0
