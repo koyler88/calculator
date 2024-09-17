@@ -304,7 +304,3 @@ equal.addEventListener('click', () => {
     }
     operation = 'operated'
 })
-
-/* BUGS 
-- rounding...
-*/
