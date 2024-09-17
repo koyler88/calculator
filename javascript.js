@@ -83,6 +83,11 @@ decimal.addEventListener('click', (e) => {
     element = e.target
     if (displayValue.includes(".")) {
     }
+    else if (displayValue === '') {
+        displayValue = 0
+        displayValue += element.value
+        display.textContent = displayValue;
+    }
     else {
         displayValue += element.value
         display.textContent = displayValue;
@@ -174,6 +179,10 @@ equal.addEventListener('click', () => {
     if (firstNumber === null) {
 
     }
+    else if (displayValue === '') {
+        display.textContent = firstNumber
+        firstNumber = null
+    }
     else {
         if (operation === 'add') {
             display.textContent = add(firstNumber,secondNumber)
@@ -202,4 +211,5 @@ equal.addEventListener('click', () => {
 /* BUGS 
 - operator then equals (without another number) results in NaN
 - rounding...
+- clicking one operator after another results in NaN
 */
