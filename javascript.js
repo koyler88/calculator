@@ -61,6 +61,7 @@ clear.addEventListener('click', () => {
     displayValue = ''
     firstNumber = null
     secondNumber = null
+    operator = ''
 })
 
 const plusMinus = document.querySelector(".plusMinus")
@@ -119,9 +120,15 @@ const equal = document.querySelector(".equals")
 
 addition.addEventListener('click', () => {
     if (firstNumber === null) {
-        firstNumber = displayValue;
-        displayValue = ''
-        operation = "add"
+        if (displayValue === '') {
+
+        }
+        else {
+            firstNumber = displayValue;
+            displayValue = ''
+            operation = "add"
+        }
+        
     }
     else {
         if (displayValue === '') {
@@ -140,9 +147,14 @@ addition.addEventListener('click', () => {
 
 subtraction.addEventListener('click', () => {
     if (firstNumber === null) {
-        firstNumber = displayValue;
-        displayValue = ''
-        operation = "subtract"
+        if (displayValue === '') {
+
+        }
+        else {
+            firstNumber = displayValue;
+            displayValue = ''
+            operation = "subtract"
+        }
     }
     else {
         if (displayValue === '') {
@@ -161,9 +173,14 @@ subtraction.addEventListener('click', () => {
 
 multiplication.addEventListener('click', () => {
     if (firstNumber === null) {
-        firstNumber = displayValue;
-        displayValue = ''
-        operation = "multiply"
+        if (displayValue === '') {
+
+        }
+        else {
+            firstNumber = displayValue;
+            displayValue = ''
+            operation = "multiply"
+        }
     }
     else {
         if (displayValue === '') {
@@ -182,9 +199,14 @@ multiplication.addEventListener('click', () => {
 
 division.addEventListener('click', () => {
     if (firstNumber === null) {
-        firstNumber = displayValue;
-        displayValue = ''
-        operation = "divide"
+        if (displayValue === '') {
+
+        }
+        else {
+            firstNumber = displayValue;
+            displayValue = ''
+            operation = "divide"
+        }
     }
     else {
         if (displayValue === '') {
@@ -256,6 +278,5 @@ equal.addEventListener('click', () => {
 
 /* BUGS 
 - rounding...
-- clicking one operator after another results in NaN
 - operator then equals results in blank display
 */
