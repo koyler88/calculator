@@ -99,6 +99,9 @@ const numbers = document.querySelectorAll(".number")
 
 numbers.forEach(button =>  button.addEventListener('click', (e) => {
     element = e.target
+    if (operation === '') {
+        displayValue = ''
+    }
     displayValue += element.value
     display.textContent = parseFloat(displayValue);
 }))
@@ -121,11 +124,17 @@ addition.addEventListener('click', () => {
         operation = "add"
     }
     else {
-        secondNumber = displayValue;
+        if (displayValue === '') {
+
+        }
+        else {
+            secondNumber = displayValue;
         display.textContent = operate(operation, firstNumber,secondNumber)
         firstNumber = operate(operation, firstNumber,secondNumber)
         displayValue = ''
         operation = 'add'
+        }
+        
     }
 })
 
@@ -136,11 +145,17 @@ subtraction.addEventListener('click', () => {
         operation = "subtract"
     }
     else {
-        secondNumber = displayValue;
+        if (displayValue === '') {
+
+        }
+        else {
+            secondNumber = displayValue;
         display.textContent = operate(operation, firstNumber,secondNumber)
         firstNumber = operate(operation, firstNumber,secondNumber)
         displayValue = ''
         operation = 'subtract'
+        }
+        
     }
 })
 
@@ -151,11 +166,17 @@ multiplication.addEventListener('click', () => {
         operation = "multiply"
     }
     else {
-        secondNumber = displayValue;
+        if (displayValue === '') {
+
+        }
+        else {
+            secondNumber = displayValue;
         display.textContent = operate(operation, firstNumber,secondNumber)
         firstNumber = operate(operation, firstNumber,secondNumber)
         displayValue = ''
         operation = 'multiply'
+        }
+        
     }
 })
 
@@ -166,11 +187,17 @@ division.addEventListener('click', () => {
         operation = "divide"
     }
     else {
-        secondNumber = displayValue;
+        if (displayValue === '') {
+
+        }
+        else {
+            secondNumber = displayValue;
         display.textContent = operate(operation, firstNumber,secondNumber)
         firstNumber = operate(operation, firstNumber,secondNumber)
         displayValue = ''
         operation = 'divide'
+        }
+        
     }
 })
 
@@ -180,8 +207,27 @@ equal.addEventListener('click', () => {
 
     }
     else if (displayValue === '') {
-        display.textContent = firstNumber
-        firstNumber = null
+        secondNumber = firstNumber
+        if (operation === 'add') {
+            display.textContent = add(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
+        if (operation === 'multiply') {
+            display.textContent = multiply(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
+        if (operation === 'subtract') {
+            display.textContent = subtract(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
+        if (operation === 'divide') {
+            display.textContent = divide(firstNumber,secondNumber)
+            displayValue = display.textContent
+            firstNumber = null
+        }
     }
     else {
         if (operation === 'add') {
@@ -205,11 +251,11 @@ equal.addEventListener('click', () => {
             firstNumber = null
         }
     }
-    
+    operation = ''
 })
 
 /* BUGS 
-- operator then equals (without another number) results in NaN
 - rounding...
 - clicking one operator after another results in NaN
+- operator then equals results in blank display
 */
