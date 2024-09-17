@@ -19,6 +19,20 @@ numberEight.value = 8
 const numberNine = document.querySelector(".nine")
 numberNine.value = 9
 
+function formatAnswer(answer) {
+    wholeNumberLength = Math.round(answer).toString().length
+    if (wholeNumberLength > 12) {
+        return "Error"
+    }
+    if (wholeNumberLength === 12) {
+        return Math.round(answer).toString()
+    }
+    if (answer.toString().length > 12 && wholeNumberLength < 12) {
+        answer = answer.toFixed(11-wholeNumberLength)
+    }
+    return answer
+
+}
 function add(x,y) {
     return parseFloat(x) + parseFloat(y)
 }
@@ -95,16 +109,21 @@ decimal.addEventListener('click', (e) => {
     }
 })
 
-
 const numbers = document.querySelectorAll(".number")
 
 numbers.forEach(button =>  button.addEventListener('click', (e) => {
     element = e.target
-    if (operation === '') {
-        displayValue = ''
+    if (displayValue.length === 12) {
     }
-    displayValue += element.value
-    display.textContent = parseFloat(displayValue);
+    else {
+        if (operation === 'operated') {
+            displayValue = ''
+            operation = ''
+        }
+        displayValue += element.value
+        display.textContent = parseFloat(displayValue);
+    }
+    
 }))
 
 firstNumber = null
@@ -132,14 +151,14 @@ addition.addEventListener('click', () => {
     }
     else {
         if (displayValue === '') {
-
+                operation = "add"
         }
         else {
             secondNumber = displayValue;
-        display.textContent = operate(operation, firstNumber,secondNumber)
-        firstNumber = operate(operation, firstNumber,secondNumber)
-        displayValue = ''
-        operation = 'add'
+            display.textContent = operate(operation, firstNumber,secondNumber)
+            firstNumber = operate(operation, firstNumber,secondNumber)
+            displayValue = ''
+            operation = 'add'
         }
         
     }
@@ -158,7 +177,7 @@ subtraction.addEventListener('click', () => {
     }
     else {
         if (displayValue === '') {
-
+            operation = "subtract"
         }
         else {
             secondNumber = displayValue;
@@ -184,7 +203,7 @@ multiplication.addEventListener('click', () => {
     }
     else {
         if (displayValue === '') {
-
+            operation = "multiply"
         }
         else {
             secondNumber = displayValue;
@@ -210,7 +229,7 @@ division.addEventListener('click', () => {
     }
     else {
         if (displayValue === '') {
-
+            operation = "divide"
         }
         else {
             secondNumber = displayValue;
@@ -231,52 +250,61 @@ equal.addEventListener('click', () => {
     else if (displayValue === '') {
         secondNumber = firstNumber
         if (operation === 'add') {
-            display.textContent = add(firstNumber,secondNumber)
-            displayValue = display.textContent
+            displayValue = add(firstNumber,secondNumber)
+            display.textContent = formatAnswer(displayValue)
             firstNumber = null
         }
         if (operation === 'multiply') {
-            display.textContent = multiply(firstNumber,secondNumber)
-            displayValue = display.textContent
+            displayValue = multiply(firstNumber,secondNumber)
+            display.textContent = formatAnswer(displayValue)
             firstNumber = null
         }
         if (operation === 'subtract') {
-            display.textContent = subtract(firstNumber,secondNumber)
-            displayValue = display.textContent
+            displayValue = subtract(firstNumber,secondNumber)
+            display.textContent = formatAnswer(displayValue)
             firstNumber = null
         }
         if (operation === 'divide') {
-            display.textContent = divide(firstNumber,secondNumber)
-            displayValue = display.textContent
-            firstNumber = null
+            if (secondNumber === '0'){
+                return "Nice try bucko"
+            }
+            else {
+                displayValue = divide(firstNumber,secondNumber)
+                display.textContent = formatAnswer(displayValue)
+                firstNumber = null
+            }
         }
     }
     else {
         if (operation === 'add') {
-            display.textContent = add(firstNumber,secondNumber)
-            displayValue = display.textContent
+            displayValue = add(firstNumber,secondNumber)
+            display.textContent = formatAnswer(displayValue)
             firstNumber = null
         }
         if (operation === 'multiply') {
-            display.textContent = multiply(firstNumber,secondNumber)
-            displayValue = display.textContent
+            displayValue = multiply(firstNumber,secondNumber)
+            display.textContent = formatAnswer(displayValue)
             firstNumber = null
         }
         if (operation === 'subtract') {
-            display.textContent = subtract(firstNumber,secondNumber)
-            displayValue = display.textContent
+            displayValue = subtract(firstNumber,secondNumber)
+            display.textContent = formatAnswer(displayValue)
             firstNumber = null
         }
         if (operation === 'divide') {
-            display.textContent = divide(firstNumber,secondNumber)
-            displayValue = display.textContent
-            firstNumber = null
+            if (secondNumber === '0'){
+                return "Nice try bucko"
+            }
+            else {
+                displayValue = divide(firstNumber,secondNumber)
+                display.textContent = formatAnswer(displayValue)
+                firstNumber = null
+            }
         }
     }
-    operation = ''
+    operation = 'operated'
 })
 
 /* BUGS 
 - rounding...
-- operator then equals results in blank display
 */
