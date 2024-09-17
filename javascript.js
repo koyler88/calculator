@@ -121,7 +121,7 @@ numbers.forEach(button =>  button.addEventListener('click', (e) => {
             operation = ''
         }
         displayValue += element.value
-        display.textContent = parseFloat(displayValue);
+        display.textContent = displayValue;
     }
     
 }))
